@@ -13,9 +13,19 @@ cursor = db.cursor()
 def app(request):
     # Create the basic table structure
     setup_tables(cursor)
-
-    # This function can be used to pre-load data into the database or other
+    
+    # This function can be used to pre-load random data into the database or other
     # common test setup tasks
+    if not cursor:
+        cursor = db.cursor()
+        cursor.execute('''INSERT INTO receipts(total_purchased, tax_due, total_due)
+                  VALUES(1000.00,100.05,832.00)''', (total_purchased, tax_due, total_due))
+		receipt_id = cursor.lastrowid
+        cursor.execute('''INSERT INTO receipt_items(receipt_id, name, price, qty)
+                      VALUES(?,'shorts',3,100.89)''', (receipt_id,name,qty,price))				  
+	db.commit()
+
+
 
     def teardown():
         drop_tables(cursor)
@@ -58,12 +68,12 @@ def test_total_purchase(app, client):
 
 def test_total_tax(app, client):
     # Remove pass and add a test for tax calculation
-    pass
+    tax_due = calculate_tax(total, sales_tax)
 
 
 def save_sale(app, client):
     # Remove pass and add a test for saving a sale
-    pass
+    receipt_id = save_sale(purchase, total, tax_due, total_due)
 
 
 def test_app(app, client):
