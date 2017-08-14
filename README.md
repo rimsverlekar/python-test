@@ -1,10 +1,20 @@
 # Softwear QA/Build Engineer Assessment
 
-This is an assessment for the QA Build engineer position at Softwear, BV. Please clone this repository and install the dependencies to begin. Open the tests/test_application.py and add additional test cases. If you are not familiar with py.test review the documentation available at https://docs.pytest.org/en/latest/contents.html. If you are unsure how to write python test cases, then start the webserver and write Selenium test cases instead.
+This is an assessment for the QA Build engineer position at Softwear, BV. Please clone this repository and install the dependencies to begin.
+
+# Challenge
+
+Open the tests/test_application.py and either modify or add additional test cases. You are free to modify tests/test_application.py any way you see fit. 
+
+If you are not familiar with py.test review the documentation available at https://docs.pytest.org/en/latest/contents.html. If you are unsure how to write Python test cases, then start the webserver (see instructions below) and write Selenium test cases instead.
+
+Do the best you can, be creative, and when complete, submit your results.
 
 # Application Synopsis
 
-This is a mock sales application built using Flask and Sqlite3. The endpoints provided return either HTML or JSON. There are a few endpoints exposed:
+This is a mock sales application built using Flask and Sqlite3. The endpoints provided return either HTML or JSON.
+
+There are a few endpoints exposed:
 
 * /
 * /get_sales
